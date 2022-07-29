@@ -1,10 +1,12 @@
+import { ReactElement } from "react";
 import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = (props: any) => {
-  const isLoggedIn = false;
+const ProtectedRoute = (props: { to?: string; children: ReactElement }) => {
+  const to = props.to || "/login";
+  const isLoggedIn = true;
 
   if (!isLoggedIn) {
-    return <Navigate to="/login" replace={true} />;
+    return <Navigate to={to} replace={true} />;
   }
 
   return props.children;

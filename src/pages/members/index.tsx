@@ -1,5 +1,7 @@
+import Layout from "../../components/layout";
+
 const Members = (props: any) => {
-    return <>Members</>;
+    return <Layout>Member</Layout>;
   };
   export default Members;
   

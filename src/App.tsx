@@ -1,8 +1,10 @@
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { mockRoute } from "./common/mock/routes.mock";
 import ProtectedRoute from "./components/common/protected-route";
+import RedirectRoute from "./components/common/redirect-route";
 import ErrorPage from "./pages/error";
-import Home from "./pages/home";
+import Dashboard from "./pages/dashboard";
 import Login from "./pages/login";
 import Members from "./pages/members";
 import Tasks from "./pages/tasks";
@@ -14,66 +16,64 @@ const NotFound = () => (
   <ErrorPage code={404} message="The page you are looking for, not found" />
 );
 
-const RouteNotFound = (props: any) => (
-  <Route {...props} element={<NotFound />} />
-);
-
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
           <Route
-            path="/"
+            path={mockRoute.ROOT}
             element={
               <ProtectedRoute>
-                <Home />
+                <Dashboard />
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/tasks"
-            element={
-              <ProtectedRoute>
-                <Tasks />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/members"
-            element={
-              <ProtectedRoute>
-                <Members />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/update">
-            {RouteNotFound({ index: true })}
-            <Route path="member">
-              {RouteNotFound({ index: true })}
-              <Route
-                path=":slug"
-                element={
-                  <ProtectedRoute>
-                    <UpdateMember />
-                  </ProtectedRoute>
-                }
-              />
-            </Route>
-            <Route path="task">
-              {RouteNotFound({ index: true })}
-              <Route
-                path=":slug"
-                element={
-                  <ProtectedRoute>
-                    <UpdateTask />
-                  </ProtectedRoute>
-                }
-              />
-            </Route>
+          <Route path={mockRoute.TASK}>
+            <Route
+              index
+              element={
+                <ProtectedRoute>
+                  <Tasks />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path=":slug"
+              element={
+                <ProtectedRoute>
+                  <UpdateTask />
+                </ProtectedRoute>
+              }
+            />
           </Route>
-          <Route path="/login" element={<Login />} />
-          {RouteNotFound({ path: "*" })}
+          <Route path={mockRoute.MEMBER}>
+            <Route
+              index
+              element={
+                <ProtectedRoute>
+                  <Members />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path=":slug"
+              element={
+                <ProtectedRoute>
+                  <UpdateMember />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
+          <Route
+            path={mockRoute.LOGIN}
+            element={
+              <RedirectRoute>
+                <Login />
+              </RedirectRoute>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </Provider>
