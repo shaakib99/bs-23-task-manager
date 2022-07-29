@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import DropDownRegular from "../dropdowns/dropdown-regular";
 
 const Navbar = (props: any) => {
@@ -33,28 +34,28 @@ const Navbar = (props: any) => {
               >
                 <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
                   <li className="nav-item">
-                    <a
+                    <Link
                       className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                      href="/"
+                      to="/"
                     >
                       Dashboard
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a
+                    <Link
                       className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                      href="/task"
+                      to="/task"
                     >
-                      Tasks
-                    </a>
+                      Task
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a
+                    <Link
                       className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                      href="/member"
+                      to="/member"
                     >
-                      Members
-                    </a>
+                      Member
+                    </Link>
                   </li>
                   <li className="nav-item">
                     <DropDownRegular />

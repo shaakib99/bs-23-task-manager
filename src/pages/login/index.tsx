@@ -2,6 +2,8 @@ import AlertRegular from "../../components/alerts/alert-regular";
 import BtnRegular from "../../components/buttons/button-regular";
 import TextField from "../../components/inputs/text-field-regular";
 import { useForm } from "react-hook-form";
+import { useUser } from "../../hooks/useUser.hook";
+import { ILogin } from "../../interfaces/login.interface";
 
 interface IFormInputs {
   email: string;
@@ -14,8 +16,11 @@ const Login = (props: any) => {
     handleSubmit,
     formState: { errors },
   } = useForm<IFormInputs>();
+  const { isLoading, login } = useUser({});
 
-  const onSubmit = (data: object) => {};
+  const onSubmit = async (data: ILogin) => {
+    const response = await login(data);
+  };
 
   return (
     <div className="flex flex-col items-center justify-center h-screen w-screen">
@@ -59,7 +64,7 @@ const Login = (props: any) => {
             upper character, number and a special character
           </p>
         )}
-        <BtnRegular text="Login" type="submit" />
+        <BtnRegular text="Login" type="submit" isLoading={isLoading} />
       </form>
     </div>
   );
