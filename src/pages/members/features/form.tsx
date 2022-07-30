@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import BtnRegular from "../../components/buttons/button-regular";
-import TextField from "../../components/inputs/text-field-regular";
-import { useMember } from "../../hooks/useMember.hook";
-import { IMember } from "../../interfaces/member.interface";
+import BtnRegular from "../../../components/buttons/button-regular";
+import TextField from "../../../components/inputs/text-field-regular";
+import { useMember } from "../../../hooks/useMember.hook";
+import { IMember } from "../../../interfaces/member.interface";
 
 const MemberForm = (props: { isCreating?: boolean }) => {
   const [member, setMember] = useState<IMember | null>(null);

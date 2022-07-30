@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ITask } from "../../interfaces/task.interface";
+import { ITask } from "../../../interfaces/task.interface";
 
 const Task = (props: ITask) => {
   return (

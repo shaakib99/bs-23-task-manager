@@ -1,12 +1,12 @@
-import { ITask } from "../../interfaces/task.interface";
+import { ITask } from "../../../interfaces/task.interface";
 import { useForm } from "react-hook-form";
-import BtnRegular from "../../components/buttons/button-regular";
-import TextField from "../../components/inputs/text-field-regular";
-import SelectRegular from "../../components/selects/select-regular";
+import BtnRegular from "../../../components/buttons/button-regular";
+import TextField from "../../../components/inputs/text-field-regular";
+import SelectRegular from "../../../components/selects/select-regular";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useTask } from "../../hooks/useTask.hook";
-import { useMember } from "../../hooks/useMember.hook";
+import { useTask } from "../../../hooks/useTask.hook";
+import { useMember } from "../../../hooks/useMember.hook";
 
 const TaskForm = (props: { isCreating?: boolean }) => {
   const { getTaskById, createTask, updateTaskById, isLoading, tasks } = useTask(

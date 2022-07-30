@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import BtnRegular from "../../components/buttons/button-regular";
 import Layout from "../../components/layout";
 import { useTask } from "../../hooks/useTask.hook";
-import Task from "./task";
+import Task from "./features/task";
 
 const Tasks = (props: any) => {
   const { tasks, getTasks, isLoading } = useTask({});

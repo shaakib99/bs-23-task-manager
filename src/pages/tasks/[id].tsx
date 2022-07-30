@@ -1,5 +1,5 @@
 import Layout from "../../components/layout";
-import TaskForm from "./form";
+import TaskForm from "./features/form";
 
 const UpdateTask = (props: { isCreating?: boolean }) => {
   return (
