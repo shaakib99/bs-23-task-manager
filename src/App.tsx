@@ -8,8 +8,8 @@ import Dashboard from "./pages/dashboard";
 import Login from "./pages/login";
 import Members from "./pages/members";
 import Tasks from "./pages/tasks";
-import UpdateMember from "./pages/update-member";
-import UpdateTask from "./pages/update-task";
+import UpdateMember from "./pages/members/[id]";
+import UpdateTask from "./pages/tasks/[id]";
 import store from "./redux/store";
 
 const NotFound = () => (
@@ -39,7 +39,15 @@ function App() {
               }
             />
             <Route
-              path=":slug"
+              path="add"
+              element={
+                <ProtectedRoute>
+                  <UpdateTask isCreating />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path=":id"
               element={
                 <ProtectedRoute>
                   <UpdateTask />
@@ -57,7 +65,15 @@ function App() {
               }
             />
             <Route
-              path=":slug"
+              path="add"
+              element={
+                <ProtectedRoute>
+                  <UpdateMember isCreating />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path=":id"
               element={
                 <ProtectedRoute>
                   <UpdateMember />

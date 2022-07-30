@@ -1,4 +1,3 @@
-import AlertRegular from "../../components/alerts/alert-regular";
 import BtnRegular from "../../components/buttons/button-regular";
 import TextField from "../../components/inputs/text-field-regular";
 import { useForm } from "react-hook-form";
@@ -18,8 +17,8 @@ const Login = (props: any) => {
   } = useForm<IFormInputs>();
   const { isLoading, login } = useUser({});
 
-  const onSubmit = async (data: ILogin) => {
-    const response = await login(data);
+  const onSubmit = (data: ILogin) => {
+    login(data);
   };
 
   return (

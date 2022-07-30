@@ -4,6 +4,7 @@ import DropDownRegular from "../dropdowns/dropdown-regular";
 
 const Navbar = (props: any) => {
   const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <>
       <div className="flex flex-wrap">
