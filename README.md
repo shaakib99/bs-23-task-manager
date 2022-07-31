@@ -1,3 +1,6 @@
+# Important
+You can use any email and password to login. mockapi.io provide you a random username
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
