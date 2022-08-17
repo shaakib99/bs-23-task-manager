@@ -11,12 +11,17 @@ export const request = async (options: {
     process.env.BASE_URL ||
     "https://62e3fbad3c89b95396d51f37.mockapi.io";
 
+  const headers = {
+    "Content-Type": "application/json",
+  };
+
   const method = options?.method || "GET";
   const data = options?.data || {};
   const endpoint = options?.endpoint || "";
   const config: AxiosRequestConfig = {
     baseURL,
     method,
+    headers,
     url: endpoint,
     params: (method === "GET" && data) || {},
     data: (method === "GET" && undefined) || data,
